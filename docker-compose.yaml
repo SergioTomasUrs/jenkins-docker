@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  jenkins:
+    build: .
+    image: mi-jenkins-personalizado:lts
+    environment:
+      CASC_JENKINS_CONFIG: /var/jenkins_home/jenkins.yaml
+    ports:
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - ./jenkins.yaml:/var/jenkins_home/jenkins.yaml
+volumes:
+  jenkins_home:
+
